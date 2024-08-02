@@ -15,7 +15,7 @@ This repository contains a [Shiny application](https://www.rstudio.com/products/
 ## Usage
 
 1. Clone this repository to the local machine.
-2. Open [RStudio IDE](https://www.rstudio.com/categories/rstudio-ide/).
+2. Open `main.R` in [RStudio IDE](https://www.rstudio.com/categories/rstudio-ide/).
 3. Uncomment the following block in `main.R` to install dependencies.
 
 ```r
