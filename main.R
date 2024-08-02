@@ -152,7 +152,8 @@ ui <- navbarPage(
     
     # About the Page
     div(class = "about-section",
-        div(class = "about-title", "Melbourne House Market Overview (2016–2017)"),
+        div(class = "about-title",
+        "Melbourne House Market Overview (2016–2017)"),
         div(class = "about-content", 
             "This map offers a comprehensive insight into the housing market of 
             Melbourne, Victoria, Australia, during 2016 and 2017, which may be 
@@ -194,12 +195,18 @@ ui <- navbarPage(
     # About the Design Elements
     div(class = "about-section",
         div(class = "about-title", "Design Elements"),
-        div(class = "about-content", "The design elements used by this page are from:"),
+        div(
+          class = "about-content",
+          "The design elements used by this page are from:"
+        ),
         div(
           class = "about-content",
           tags$ul(
             tags$li(
-              "Icons: ", tags$a(href = "https://www.flaticon.com/free-icons/search-engine", "Flaticon")
+              "Icons: ", tags$a(
+                href = "https://www.flaticon.com/free-icons/search-engine",
+                "Flaticon"
+              )
             ),
             tags$li(
               "Themes: ", tags$a(href = "https://bootswatch.com/","Bootswatch")
@@ -231,8 +238,12 @@ server <- function(input, output, session){
   observeEvent(input$search, {
     tmp_f <- f
     
-    min_budget <- ifelse(is.na(input$min_price) || input$min_price == "", 0, input$min_price)
-    max_budget <- ifelse(is.na(input$max_price) || input$max_price == "", 9000000, input$max_price)
+    min_budget <- ifelse(
+      is.na(input$min_price) || input$min_price == "", 0, input$min_price
+    )
+    max_budget <- ifelse(
+      is.na(input$max_price) || input$max_price == "", 9000000, input$max_price
+    )
     
     data <- tmp_f[tmp_f$Price >= min_budget & tmp_f$Price <= max_budget, ]
     filtered_price(data)
@@ -243,7 +254,9 @@ server <- function(input, output, session){
     filtered_price(data)
     
     updateNumericInput(session = session, inputId = "min_price", value = 0)
-    updateNumericInput(session = session, inputId = "max_price", value = 9000000)
+    updateNumericInput(
+      session = session, inputId = "max_price", value = 9000000
+    )
   })
   
   # reactive part
@@ -255,9 +268,13 @@ server <- function(input, output, session){
     
     # filter Regionnames
     if ("m" %in% input$region && !"r" %in% input$region) {
-      data <- data[grepl("metropolitan", data$Regionname, ignore.case = TRUE), ]
+      data <- data[grepl(
+        "metropolitan", data$Regionname, ignore.case = TRUE
+      ), ]
     } else if (!"m" %in% input$region && "r" %in% input$region) {
-      data <- data[!grepl("metropolitan", data$Regionname, ignore.case = TRUE), ]
+      data <- data[!grepl(
+        "metropolitan", data$Regionname, ignore.case = TRUE
+      ), ]
     } else if (!"m" %in% input$region && !"r" %in% input$region){
       data <- data.frame()
     }
