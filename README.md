@@ -37,7 +37,7 @@ for (i in imported_packages) {
 
 ## References
 
-[1] T. Pino, “[Melbourne Housing Snapshot](https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot).” Sep. 2017. Accessed: Sep. 13, 2023.
+- [1] T. Pino, “[Melbourne Housing Snapshot](https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot).” Sep. 2017. Accessed: Sep. 13, 2023.
 
 ## Acknowledgements
 
